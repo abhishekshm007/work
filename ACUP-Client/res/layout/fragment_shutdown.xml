@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_margin="5dp"
+    android:orientation="vertical"
+    android:weightSum="3" >
+
+    <LinearLayout
+        android:baselineAligned="false"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:weightSum="2" >
+
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:weightSum="1" >
+
+            <Button
+                android:id="@+id/btnHibernate"
+                android:layout_width="116dp"
+                android:layout_height="0dip"
+                android:layout_weight="0.71"
+                android:background="@drawable/ic_hibernate" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight=".2"
+                android:height="2dip"
+                android:gravity="center"
+                android:text="Hibernate" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            
+            android:weightSum="1" >
+
+            <Button
+                android:id="@+id/btnShutDown"
+               android:layout_width="116dp"
+                android:layout_height="0dip"
+                android:layout_weight="0.71"
+                android:background="@drawable/ic_shutdown" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight=".2"
+                android:height="2dip"
+                android:gravity="center"
+                android:text="Shutdown" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="2" >
+
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            
+            android:weightSum="1" >
+
+            <Button
+                android:id="@+id/btnSleep"
+               android:layout_width="116dp"
+                android:layout_height="0dip"
+                android:layout_weight="0.71"
+                android:background="@drawable/ic_sleep" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight=".2"
+                android:height="2dip"
+                android:gravity="center"
+                android:text="Sleep" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="2" >
+
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            
+            android:weightSum="1" >
+
+            <Button
+                android:id="@+id/btnLock"
+               android:layout_width="116dp"
+                android:layout_height="0dip"
+                android:layout_weight="0.71"
+                android:background="@drawable/ic_lock" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight=".2"
+                android:height="2dip"
+                android:gravity="center"
+                android:text="Lock" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            
+            android:weightSum="1" >
+
+            <Button
+                android:id="@+id/btnRestart"
+               android:layout_width="116dp"
+                android:layout_height="0dip"
+                android:layout_weight="0.71"
+                android:background="@drawable/ic_restart" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight=".2"
+                android:height="2dip"
+                android:gravity="center"
+                android:text="Restart" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

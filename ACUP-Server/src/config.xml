@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Default values set on Thu Oct 02 00:22:19 IST 2014</comment>
+<entry key="port1">2462</entry>
+<entry key="port2">2463</entry>
+<entry key="pin">ainaa</entry>
+<entry key="pcName">Hp-Abhishek</entry>
+<entry key="pcPlatform">linux</entry>
+</properties>
