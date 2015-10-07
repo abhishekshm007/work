@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--
+  ~ Hibernate, Relational Persistence for Idiomatic Java
+  ~
+  ~ Copyright (c) 2010, Red Hat Inc. or third-party contributors as
+  ~ indicated by the @author tags or express copyright attribution
+  ~ statements applied by the authors.  All third-party contributions are
+  ~ distributed under license by Red Hat Inc.
+  ~
+  ~ This copyrighted material is made available to anyone wishing to use, modify,
+  ~ copy, or redistribute it subject to the terms and conditions of the GNU
+  ~ Lesser General Public License, as published by the Free Software Foundation.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~ or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License
+  ~ for more details.
+  ~
+  ~ You should have received a copy of the GNU Lesser General Public License
+  ~ along with this distribution; if not, write to:
+  ~ Free Software Foundation, Inc.
+  ~ 51 Franklin Street, Fifth Floor
+  ~ Boston, MA  02110-1301  USA
+  -->
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://127.9.152.2:3306/hf</property>
+        <property name="connection.username">adminAJbqtjq</property>
+        <property name="connection.password">rkMQCGbn6745</property>
+
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">1</property>
+
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+        <!-- Disable the second-level cache  -->
+        <!-- <property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property> -->
+        
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+        
+        <!-- For singleton factory -->
+        <!-- <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory</property>
+         -->
+         
+         <!-- enable second level cache and query cache -->
+         <property name="hibernate.cache.use_second_level_cache">true</property>
+         <property name="hibernate.cache.use_query_cache">true</property>
+         <property name="net.sf.ehcache.configurationResourceName">/ehcache.xml</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hbm2ddl.auto">update</property>
+
+        <!-- Names the annotated entity class -->
+        <mapping class="com.hf.persistentClass.User"/>
+        <mapping class="com.hf.persistentClass.Product"/>
+        <mapping class="com.hf.persistentClass.Promo"/>
+        <mapping class="com.hf.persistentClass.Order"/>
+        <mapping class="com.hf.persistentClass.Banner"/>
+        <mapping class="com.hf.persistentClass.Pincode"/>
+        <mapping class="com.hf.persistentClass.ProductCotegory"/>
+        <mapping class="com.hf.persistentClass.StockCotegory"/>
+    </session-factory>
+
+</hibernate-configuration>

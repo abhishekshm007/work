@@ -1,0 +1,41 @@
+
+	<div class="row">
+			<div class="col-md-12">
+				<div class="box box-primary" id="box2">
+					<form enctype="multipart/form-data" id="addbatchform"
+						class="form-horizontal"
+						onsubmit="fileUpload(this,'../AddBatch')">
+						<div class="box-body">
+							<div class="form-group">
+								<div class="col-lg-10">
+									<label for="batchname">Batch name</label> <input id="batchname"
+										name="batchname" type="text" placeholder="Batch Name"
+										class="form-control input-md" required="required">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-lg-10">
+									<label for="files">Student data</label> <input type="file"
+									accept=".xlsx,.xls"	name="file" id="files" /><br /> <span class="help-block">
+										Note:- Only  xlsx or xls format is alowed.If you don't want to
+										add students now you can skip student data.<br><a href="../samples/student.xlsx">download</a> sample format </span>
+								</div>
+							</div>
+
+						</div>
+						<div class="box-footer">
+							<div class="form-group">
+								<div class="col-lg-7">
+									<button id="Add" name="add" class="btn btn-primary"
+										type="submit">
+										ADD <i class="glyphicon glyphicon-plus"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+<!-- modal -->
+

@@ -1,0 +1,84 @@
+<meta charset="utf-8">
+<div class="row">
+	<div class="col-xs-12">
+		<div class="box box-primary" id="box1">
+			<div class="box-body table-responsive">
+				<table id="studentTable"
+					class="table table-bordered table-striped dataTable">
+					<thead>
+						<tr>
+							<td>Name</td>
+							<td>Email</td>
+							<td>Batch</td>
+							<td>Profile</td>
+							<td>Contact Number</td>
+							<td>Delete</td>
+						</tr>
+					</thead>
+
+				</table>
+<br><br>
+						<button class="btn btn-default " ui-sref="addstudents">
+							<span class="glyphicon glyphicon-plus" style="color: green;"
+								aria-hidden="true"></span> <b> Add Students</b>
+						</button>
+				<!-- /.box-body -->
+			</div>
+		</div>
+	</div>
+</div>
+<div id="studentprofile" class="modal fade" style="position: absolute;"
+	tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+	aria-hidden="true">
+	<div id="myModal1" class="modal-dialog modal-md">
+		<div class="modal-content">
+			<div class="modal-header" id="modalheader">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true" onclick="clear()">×</button>
+				<h3 class="modal-title" class="label label-success">Student
+					Profile</h3>
+			</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-5 col-lg-5 " align="center" id="profilepic"></div>
+						<div class=" col-md-7 col-lg-7 ">
+							<table class="table table-user-information">
+								<tbody>
+									<tr>
+										<td>Name :</td>
+										<td id="stuname"></td>
+									</tr>
+									<tr>
+										<td>Email :</td>
+										<td id="semail"></td>
+									</tr>
+									<tr>
+										<td>Batch :</td>
+										<td id="sbatch"></td>
+									</tr>
+									<tr>
+										<td>Contact :</td>
+										<td id="scontact"></td>
+									</tr>
+									<tr>
+										<td>Gender :</td>
+										<td id="sgender"></td>
+									</tr>
+									<tr>
+										<td>Date of birth :</td>
+										<td id="sdob"></td>
+									</tr>
+									<tr>
+										<td>Address :</td>
+										<td id="saddress"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+			</div>
+	</div>
+</div>
+

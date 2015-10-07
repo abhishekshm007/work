@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+org.jboss.tools.openshift.ApplicationId=55186fa54382eceb8700017d
+org.jboss.tools.openshift.ApplicationName=hf
+org.jboss.tools.openshift.Connection=https\://abhishek.1210008%40kiet.edu@
+org.jboss.tools.openshift.DeployFolder=webapps
+org.jboss.tools.openshift.Domain=hf1
+org.jboss.tools.openshift.RemoteName=origin

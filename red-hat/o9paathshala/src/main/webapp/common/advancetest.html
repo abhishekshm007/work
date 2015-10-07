@@ -1,0 +1,132 @@
+<meta charset="utf-8">
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="box box-primary" id="box1" >
+			<form role="form" id="createtest" method="post">
+				<div class="box-body">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="name">Name</label> <input id="testname"
+									name="testname" type="text" placeholder="Enter Test Name"
+									class="form-control input-md" required="required"><span
+									class="help-block"></span> <span class="help-block"> <b
+									style="color: red;" id="warning"></b></span>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="duration">Duration</label> <input id="duration"
+									name="duration" type="number"
+									placeholder="Enter duration of Test in minutes"
+									class="form-control input-md" required="required">
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="positivemark">Positive Marks per question</label> <input
+									id="positivemark" name="positivemark" type="number" step="0.01"
+									min="0" placeholder="Enter Marks" class="form-control input-md"
+									required="required">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="negativemark">Negative Marks per question</label> <input
+									id="negativemark" name="negativemark" type="number" step="0.01"
+									min="0" placeholder="Enter Marks" class="form-control input-md"
+									required="required" value="0.0">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="startdate">Start date when test will be
+									available to Student</label> <input id="startdate" name="startdate"
+									type="datetime-local" placeholder="Enter Date"
+									class="form-control input-md" required="required" val="">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="enddate">End date after that test will not
+									be available to student(optional)</label> <input id="enddate"
+									name="enddate" type="datetime-local" placeholder="Enter Date"
+									class="form-control input-md">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="batchname">Batch </label> <select required multiple
+									id="batch" name="batch" class="form-control ">
+									<option disabled value="">Select Batch for this test</option>
+									<option ng-repeat="x in options" value="{{x.value}}">{{x.label}}</option>
+								</select><span class="help-block"> Ctrl + Click to do multiple
+									selects</b>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="box-footer">
+					<div class="form-group">
+						<button id="next" name="next" class="btn btn-primary"
+							type="submit">
+							Next <i class="glyphicon glyphicon-forward"></i>
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<div class="box box-primary" id="box2" style="display: none;">
+		<form enctype="multipart/form-data" 
+						class="form-horizontal"
+						onsubmit="createTest(this,'../CreateAdvanceTest')" id="preparetest">
+					<div class="box-body">
+					<div class="row">
+					<div class="col-md-11">
+					<div class="col-md-7">
+					<div class="form-group">
+					<input type="hidden" name="testid" id="testid">
+							<label for="tq">Total questions</label> <input id="tq" name="tq"
+								type="number" placeholder="Enter the number of questions in test"
+								class="form-control input-md" required="required">
+						</div>
+						<div class="form-group">
+							<label for="testPaper">Test Paper</label>
+							<input type="file" accept=".doc,.pdf"	name="testpaper" id="testpaper" required/><br /> <span class="help-block">
+										Note:- Only doc or pdf format is allowed.<br></span>
+						</div>
+						<div class="form-group">
+							<label for="testPaper">Answers(optional)</label>
+							<input type="file" accept=".doc,.pdf"	name="answerpaper" id="answerpaper" /><br /> <span class="help-block">
+										Note:- Only doc or pdf format is allowed.<br></span>
+						</div>
+		</div>
+		<div class="col-md-4" id="omrsheet" style="display: none;" >
+		<label >Correct Answers of Questions</label>
+		<table style="border-collapse: separate" class="table table-bordered" id="options" >
+		
+		
+	</table>
+		</div></div>
+</div>
+					</div>
+					<!-- /.box-body -->
+					<br>
+					<div class="box-footer">
+						<button name="add" class=" btn btn-primary" type="submit">
+							<b>ADD</b> <i class="glyphicon glyphicon-plus"></i>
+						</button>
+					</div>
+				</form>
+			</div>	
+</div></div>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+ 
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <appender name="fileAppender" class="org.apache.log4j.RollingFileAppender">
+        <param name="Threshold" value="INFO" />
+         <!-- <param name="File" value="getenv('MAIN_LOG_DIR')/jbossews.log" />  -->
+         <param name="File" value="/var/lib/openshift/55186fa54382eceb8700017d/app-root/logs/hf.log" /> 
+              <!--   <param name="File" value="/home/abhishek/o9.log" /> -->
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d  %-5p  [%c{1}] %m %n" />
+        </layout>
+    </appender>
+ 
+    <root>
+        <priority value="info" />
+        <appender-ref ref="fileAppender" />
+    </root>
+</log4j:configuration>

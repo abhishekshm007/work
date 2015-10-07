@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web_1="http://java.sun.com/xml/ns/javaee"
+	xmlns:web="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>o9paathshala</display-name>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	<filter>
+		<filter-name>SessionFull</filter-name>
+		<filter-class>com.o9paathshala.filters.ForSessionFullFilter</filter-class>
+	</filter>
+	<filter>
+		<filter-name>SessionLess</filter-name>
+		<filter-class>com.o9paathshala.filters.ForSessionLessFilter</filter-class>
+	</filter>
+
+	<filter>
+		<filter-name>UserDistinguishingForInstitute</filter-name>
+		<filter-class>com.o9paathshala.filters.UserDistinguishingFilterForInstitution</filter-class>
+	</filter>
+
+	<filter>
+		<filter-name>UserDistinguishingForFaculty</filter-name>
+		<filter-class>com.o9paathshala.filters.UserDistinguishingFilterForFaculty</filter-class>
+	</filter>
+	<filter>
+		<filter-name>UserDistinguishingForStudent</filter-name>
+		<filter-class>com.o9paathshala.filters.UserDistinguishingFilterForStudent</filter-class>
+	</filter>
+
+	<filter>
+		<filter-name>FilterForFacultyorInstitute</filter-name>
+		<filter-class>com.o9paathshala.filters.FilterForFacultyorInstitute</filter-class>
+	</filter>
+	<filter>
+		<filter-name>FilterForFacultyorStudent</filter-name>
+		<filter-class>com.o9paathshala.filters.FilterForFacultyorStudent</filter-class>
+	</filter>
+	<filter>
+		<filter-name>FilterForInstituteorStudent</filter-name>
+		<filter-class>com.o9paathshala.filters.FilterForInstituteorStudent</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>SessionLess</filter-name>
+		<url-pattern>/index.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SessionLess</filter-name>
+		<url-pattern>/forgotPassword.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SessionLess</filter-name>
+		<url-pattern>/help.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SessionLess</filter-name>
+		<url-pattern>/login.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SessionLess</filter-name>
+		<url-pattern>/whatis.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SessionLess</filter-name>
+		<url-pattern>/studentRegistration.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SessionLess</filter-name>
+		<url-pattern>/instituteRegistration.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SessionLess</filter-name>
+		<url-pattern>/features.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SessionLess</filter-name>
+		<url-pattern>/confirmRegistration.jsp</url-pattern>
+	</filter-mapping>
+
+
+	<filter-mapping>
+		<filter-name>SessionFull</filter-name>
+		<url-pattern>/chooseInstitute.jsp</url-pattern>
+	</filter-mapping>
+
+
+
+
+	<filter-mapping>
+		<filter-name>UserDistinguishingForInstitute</filter-name>
+		<url-pattern>/institute/dashboard</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>UserDistinguishingForInstitute</filter-name>
+		<url-pattern>/institute/dashboard.jsp</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>UserDistinguishingForFaculty</filter-name>
+		<url-pattern>/faculty/dashboard</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>UserDistinguishingForFaculty</filter-name>
+		<url-pattern>/faculty/dashboard.jsp</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>UserDistinguishingForStudent</filter-name>
+		<url-pattern>/student/dashboard</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>UserDistinguishingForStudent</filter-name>
+		<url-pattern>/student/dashboard.jsp</url-pattern>
+	</filter-mapping>
+
+	<!-- batch filters -->
+	<filter-mapping>
+		<filter-name>UserDistinguishingForInstitute</filter-name>
+		<url-pattern>/AddBatch</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>UserDistinguishingForInstitute</filter-name>
+		<url-pattern>/AllotBatches</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>UserDistinguishingForInstitute</filter-name>
+		<url-pattern>/ChangeBatch</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>UserDistinguishingForInstitute</filter-name>
+		<url-pattern>/DeAllotBatches</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>UserDistinguishingForInstitute</filter-name>
+		<url-pattern>/DeleteBatch</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>UserDistinguishingForInstitute</filter-name>
+		<url-pattern>/EditBatch</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>UserDistinguishingForFaculty</filter-name>
+		<url-pattern>/FacultyBatches</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>UserDistinguishingForInstitute</filter-name>
+		<url-pattern>/GetBatchDetails</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>UserDistinguishingForInstitute</filter-name>
+		<url-pattern>/GetBatches</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>UserDistinguishingForInstitute</filter-name>
+		<url-pattern>/GetFacultyBatches</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>FilterForFacultyorInstitute</filter-name>
+		<url-pattern>/GetMyBatches</url-pattern>
+	</filter-mapping>
+	<!-- batch filters -->
+
+	<!-- Faculty Filters -->
+	<filter-mapping>
+		<filter-name>UserDistinguishingForInstitute</filter-name>
+		<url-pattern>/AddFaculty</url-pattern>
+	</filter-mapping>
+
+
+	<filter-mapping>
+		<filter-name>UserDistinguishingForInstitute</filter-name>
+		<url-pattern>/DeleteFaculty</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>FilterForFacultyorInstitute</filter-name>
+		<url-pattern>/FacultyProfile</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>UserDistinguishingForInstitute</filter-name>
+		<url-pattern>/GetAllFaculty</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>UserDistinguishingForFaculty</filter-name>
+		<url-pattern>/DashboardFaculty</url-pattern>
+	</filter-mapping>
+	<!-- Faculty Filters -->
+
+	<!-- Institute Filters -->
+	<filter-mapping>
+		<filter-name>UserDistinguishingForInstitute</filter-name>
+		<url-pattern>/DashboardInstitute</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>UserDistinguishingForInstitute</filter-name>
+		<url-pattern>/GetInstituteProfile</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>UserDistinguishingForInstitute</filter-name>
+		<url-pattern>/UpdateInstituteProfile</url-pattern>
+	</filter-mapping>
+	<!-- Institute Filters -->
+
+	<!-- Forum filters -->
+	<filter-mapping>
+		<filter-name>SessionFull</filter-name>
+		<url-pattern>/AddTag</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>SessionFull</filter-name>
+		<url-pattern>/DeleteTag</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>SessionFull</filter-name>
+		<url-pattern>/GetAllTags</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>SessionFull</filter-name>
+		<url-pattern>/GetAnswers</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>SessionFull</filter-name>
+		<url-pattern>/GetExploredQuestion</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>SessionFull</filter-name>
+		<url-pattern>/GetQuestions</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>SessionFull</filter-name>
+		<url-pattern>/GetTags</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>SessionFull</filter-name>
+		<url-pattern>/PostAnswer</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>SessionFull</filter-name>
+		<url-pattern>/PostQuestion</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>SessionFull</filter-name>
+		<url-pattern>/UpdateLike</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>SessionFull</filter-name>
+		<url-pattern>/UpdateTag</url-pattern>
+	</filter-mapping>
+	<!-- Forum filters -->
+
+
+	<!-- Questions Filter -->
+	<filter-mapping>
+		<filter-name>FilterForFacultyorInstitute</filter-name>
+		<url-pattern>/AddMultipleQuestion</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FilterForFacultyorInstitute</filter-name>
+		<url-pattern>/AddSingleQuestion</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FilterForFacultyorInstitute</filter-name>
+		<url-pattern>/DeleteMyTestQuestion</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FilterForFacultyorInstitute</filter-name>
+		<url-pattern>/DeletePurchasedTestQuestion</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FilterForFacultyorInstitute</filter-name>
+		<url-pattern>/DeleteQuestion</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FilterForFacultyorInstitute</filter-name>
+		<url-pattern>/EditQuestion</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FilterForFacultyorInstitute</filter-name>
+		<url-pattern>/GetMyQuestions</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FilterForFacultyorInstitute</filter-name>
+		<url-pattern>/GetMyTestQuestion</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FilterForFacultyorInstitute</filter-name>
+		<url-pattern>/GetPurchasedQuestion</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FilterForFacultyorInstitute</filter-name>
+		<url-pattern>/GetPurchasedTestQuestion</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FilterForFacultyorInstitute</filter-name>
+		<url-pattern>/PurchasedQuestionDetail</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FilterForFacultyorInstitute</filter-name>
+		<url-pattern>/QuestionDetail</url-pattern>
+	</filter-mapping>
+	<!-- Questions Filter -->
+
+	<!-- QuestionSet filters -->
+	<filter-mapping>
+		<filter-name>FilterForFacultyorInstitute</filter-name>
+		<url-pattern>/GetAllSet</url-pattern>
+	</filter-mapping>
+	<!-- QuestionSet filters -->
+
+
+	<!-- Result Filter -->
+	<filter-mapping>
+		<filter-name>FilterForFacultyorInstitute</filter-name>
+		<url-pattern>/GetAllResults</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>UserDistinguishingForStudent</filter-name>
+		<url-pattern>/LeaderBoard</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>UserDistinguishingForStudent</filter-name>
+		<url-pattern>/MyAllResult</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SessionFull</filter-name>
+		<url-pattern>/MyResult</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>UserDistinguishingForStudent</filter-name>
+		<url-pattern>/SaveResult</url-pattern>
+	</filter-mapping>
+	<!-- Result Filter -->
+
+
+
+	<!-- Security Filters -->
+	<filter-mapping>
+		<filter-name>UserDistinguishingForStudent</filter-name>
+		<url-pattern>/Security</url-pattern>
+	</filter-mapping>
+	<!-- Security Filters -->
+
+	<!-- Students Filter -->
+	<filter-mapping>
+		<filter-name>UserDistinguishingForInstitute</filter-name>
+		<url-pattern>/AddMultipleStudent</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>UserDistinguishingForInstitute</filter-name>
+		<url-pattern>/AddSingleStudent</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>UserDistinguishingForStudent</filter-name>
+		<url-pattern>/DashboardStudent</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>UserDistinguishingForInstitute</filter-name>
+		<url-pattern>/DeleteStudent</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FilterForFacultyorInstitute</filter-name>
+		<url-pattern>/GetAllStudents</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>UserDistinguishingForInstitute</filter-name>
+		<url-pattern>/GetStudentsOnBatch</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SessionFull</filter-name>
+		<url-pattern>/StudentProfile</url-pattern>
+	</filter-mapping>
+	<!-- Students Filter -->
+
+<!-- Subject Filter -->
+<filter-mapping>
+		<filter-name>UserDistinguishingForInstitute</filter-name>
+		<url-pattern>/AddSubject</url-pattern>
+	</filter-mapping>
+<filter-mapping>
+		<filter-name>UserDistinguishingForInstitute</filter-name>
+		<url-pattern>/DeleteSubject</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>UserDistinguishingForInstitute</filter-name>
+		<url-pattern>/EditSubject</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>UserDistinguishingForInstitute</filter-name>
+		<url-pattern>/GetAllSubjects</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FilterForFacultyorInstitute</filter-name>
+		<url-pattern>/Geto9Subjects</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FilterForFacultyorInstitute</filter-name>
+		<url-pattern>/GetSubjects</url-pattern>
+	</filter-mapping>
+<!-- Subject Filter -->
+
+
+<!-- Test Filters -->
+<filter-mapping>
+		<filter-name>FilterForFacultyorInstitute</filter-name>
+		<url-pattern>/CreateTest</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FilterForFacultyorInstitute</filter-name>
+		<url-pattern>/DeleteTest</url-pattern>
+	</filter-mapping>
+<filter-mapping>
+		<filter-name>FilterForFacultyorInstitute</filter-name>
+		<url-pattern>/EditTest</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FilterForFacultyorInstitute</filter-name>
+		<url-pattern>/GetAllTests</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SessionFull</filter-name>
+		<url-pattern>/GetTests</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FilterForFacultyorInstitute</filter-name>
+		<url-pattern>/NewTest</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FilterForFacultyorInstitute</filter-name>
+		<url-pattern>/GetAllTests</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>UserDistinguishingForStudent</filter-name>
+		<url-pattern>/StartTest</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>UserDistinguishingForStudent</filter-name>
+		<url-pattern>/StudentTests</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>UserDistinguishingForStudent</filter-name>
+		<url-pattern>/UnAttemptedTest</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FilterForFacultyorInstitute</filter-name>
+		<url-pattern>/UpdateActivation</url-pattern>
+	</filter-mapping>
+<!-- Test Filters -->
+
+
+<!-- user filters -->
+<filter-mapping>
+		<filter-name>SessionFull</filter-name>
+		<url-pattern>/GetMyInstitutes</url-pattern>
+	</filter-mapping>
+<filter-mapping>
+		<filter-name>SessionFull</filter-name>
+		<url-pattern>/ProfilePicture</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SessionFull</filter-name>
+		<url-pattern>/Switch</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SessionFull</filter-name>
+		<url-pattern>/UpdatePassword</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SessionFull</filter-name>
+		<url-pattern>/UpdateProfile</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SessionFull</filter-name>
+		<url-pattern>/UploadDp</url-pattern>
+	</filter-mapping>
+<!-- user filters -->
+
+
+
+
+
+
+	<servlet>
+		<servlet-name>StudentDashboard</servlet-name>
+		<jsp-file>/student/dashboard.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>StudentDashboard</servlet-name>
+		<url-pattern>/student/dashboard</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>FacultyDashboard</servlet-name>
+		<jsp-file>/faculty/dashboard.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FacultyDashboard</servlet-name>
+		<url-pattern>/faculty/dashboard</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>InstituteDashboard</servlet-name>
+		<jsp-file>/institute/dashboard.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>InstituteDashboard</servlet-name>
+		<url-pattern>/institute/dashboard</url-pattern>
+	</servlet-mapping>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/404error.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/500error.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>400</error-code>
+		<location>/400error.jsp</location>
+	</error-page>
+</web-app>

@@ -1,0 +1,78 @@
+<meta charset="utf-8">
+
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="box box-primary" id="box1">
+				<div class="box-header">
+					<h4 class="box-title">Fill Test Details</h4>
+				</div>
+				<form role="form" id="edittest" method="post">
+				<input type="hidden" name="testid" id="testid">
+					<div class="box-body">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="name">Name</label> <input id="testname"
+										name="testname" type="text" placeholder="Enter Test Name"
+										class="form-control input-md" required="required">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="duration">Duration</label> <input id="duration"
+										name="duration" type="number"
+										placeholder="Enter duration of Test in minutes"
+										class="form-control input-md" required="required">
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="positivemark">Positive Marks per question</label> <input
+										id="positivemark" name="positivemark" type="number"
+										step="0.01" min="0" placeholder="Enter Marks"
+										class="form-control input-md" required="required">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="negativemark">Negative Marks per question</label> <input
+										id="negativemark" name="negativemark" type="number"
+										step="0.01" min="0" placeholder="Enter Marks"
+										class="form-control input-md" required="required" value="0.0">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="startdate">Start date when test will be
+										available to Student</label> <input id="startdate" name="startdate"
+										type="datetime-local" placeholder="Enter Date"
+										class="form-control input-md" required="required" val="">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="enddate">End date after that test will not
+										be available to student(optional)</label> <input id="enddate"
+										name="enddate" type="datetime-local" placeholder="Enter Date"
+										class="form-control input-md">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="box-footer">
+						<div class="form-group">
+							<button id="next" name="next" class="btn btn-primary"
+								type="submit" >
+								Save <i class="glyphicon glyphicon-save"></i>
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			</div></div>

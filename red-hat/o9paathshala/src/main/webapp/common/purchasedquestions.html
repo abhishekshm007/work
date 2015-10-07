@@ -1,0 +1,56 @@
+<meta charset="utf-8">
+	<div class="row">
+
+		<section class="col-lg-12 connectedSortable ui-sortable">
+
+			<div class="box box-danger">
+				<div class="box-header">
+					<fieldset data-role="controlgroup" class="pull-right box-tools">
+						<select id="subject" name="subject" class=" btn btn-default ">
+							<option ng-repeat="x in options" value="{{x.value}}">{{x.label}}</option>
+						</select>
+					</fieldset>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body table-responsive">
+					<table id="purchasedQuestionTable"
+						class="table table-bordered table-striped dataTable">
+						<thead>
+							<tr>
+								<td>Question</td>
+								<td>Topic</td>
+								<td>Details</td>
+							</tr>
+						</thead>
+
+					</table>
+
+					<!-- /.box-body -->
+				</div>
+			</div>
+		</section>
+	</div>
+
+<div id="purchasedquestion" class="modal fade" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+	<div id="myModal1" class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header" id="modalheader">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true" onclick="clear()">×</button>
+				<h3 class="modal-title" class="label label-success">Question</h3>
+				<div class="modal-body">
+					<div class="panel panel-default">
+						<!-- Default panel contents -->
+						<div class="panel-heading">
+							<p id="questionContent"></p>
+						</div>
+						<div class="panel-body">
+							<div id="options"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

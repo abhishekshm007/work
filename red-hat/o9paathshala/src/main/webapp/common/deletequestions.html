@@ -1,0 +1,97 @@
+<meta charset="utf-8">
+
+<div class="row">
+		<div class="col-md-12">
+			<div class="box box-primary" id="box2" >
+				
+				<div class="box-body">
+					
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="box box-primary">
+								<div class="box-header">
+									<h3 class="box-title">My Questions</h3>
+								</div>
+								<!-- /.box-header -->
+								<div class="box-body table-responsive">
+									<table id="myQTable"
+										class="table table-bordered table-striped dataTable">
+										<thead>
+											<tr>
+												<td>Question</td>
+												<td>Section</td>
+												<td>Details</td>
+												<td>Delete</td>
+											</tr>
+										</thead>
+									</table>
+
+									<!-- /.box-body -->
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="box box-danger">
+								<div class="box-header">
+									<h3 class="box-title">Purchased Questions</h3>
+									<span style="position: absolute;"> </span>
+								</div>
+								<!-- /.box-header -->
+								<div class="box-body table-responsive">
+									<table id="pQTable"
+										class="table table-bordered table-striped dataTable">
+										<thead>
+											<tr>
+												<td>Question</td>
+												<td>Section</td>
+												<td>Details</td>
+												<td>Delete</td>
+											</tr>
+										</thead>
+
+									</table>
+
+									<!-- /.box-body -->
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<div class="box-footer">
+						<div class="row">
+							<button id="test" style="margin-left: 25%;" name="test"
+								class="btn btn-primary col-md-6 " onclick="window.history.back()">
+								<i class="glyphicon glyphicon-backward"></i> Go Back 
+							</button>
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div></div>
+		
+		<div id="questiondetail" class="modal fade" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+	<div id="myModal1" class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header" id="modalheader">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true" onclick="clear()">×</button>
+				<h3 class="modal-title" class="label label-success">Question</h3>
+				<div class="modal-body">
+					<div class="panel panel-default">
+						<!-- Default panel contents -->
+						<div class="panel-heading">
+							<p id="questionContent"></p>
+						</div>
+						<div class="panel-body">
+							<div id="options"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

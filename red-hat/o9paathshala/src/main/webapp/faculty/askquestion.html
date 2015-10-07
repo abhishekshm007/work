@@ -1,0 +1,57 @@
+<div class='row' id="content">
+	<div class='col-md-12'>
+		<div class='box box-info'>
+			<div class='box-header'>
+				<h4 class='box-title'>Ask your question here</h4>
+			</div>
+			<!-- /.box-header -->
+			<div class='box-body pad'>
+
+
+
+				<form name="questionForm"
+					data-ng-submit="submitForm()" novalidate>
+					<div class="input-group">
+						<span class="input-group-addon"><dt>Title</dt></span>
+						 <input class="form-control" data-ng-model="question.title" type="text"
+							placeholder="Give your question title here and be specific">
+					</div>
+
+					<br>
+					<div>
+					<textarea class="questionTextarea"
+						placeholder="Give your question content here ... and be descriptive"
+						style="width: 100%; height: 250px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+					</div>
+					<br>
+					<div class="input-group">
+						<span style="border: none;" class="input-group-addon"><b>Tags</b></span>
+
+						<span id="tagRow"
+							style="border: none; padding: 0px 15px 0px 10px;"
+							class="input-group-addon "> </span> <input id="tagValue"
+							type="hidden" data-ng-value='tagIds' style="display: none;"
+							class="form-control" name="tagIds"> <input type="text"
+							id="tagPopover" name="tags" data-container="body"
+							data-toggle="popover" data-placement="top" data-original-title=""
+							title="Choose a tag" class="form-control bs-docs-popover"
+							oncut="tagLoad()" onpaste="tagLoad()" onkeyup="tagLoad()"
+							required="required" placeholder="Start typing tags...">
+
+
+					</div>
+					<div>
+						<div class="box-footer pull-right">
+							<button type="submit" class=" btn btn-primary btn-lg">Post
+								question</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<!-- /.box -->
+
+	</div>
+	<!-- /.col-->
+</div>
+<!-- ./row -->

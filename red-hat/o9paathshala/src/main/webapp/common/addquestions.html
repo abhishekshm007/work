@@ -1,0 +1,120 @@
+<meta charset="utf-8">
+	<div class="row">
+		<!-- left column -->
+
+		<div class="col-md-12">
+			
+			<div class="box box-primary" id="box2">
+				<div class="box-header">
+					<h3 class="box-title">Upload Questions Excel Here...</h3>
+					
+				</div>
+				<form enctype="multipart/form-data" id="addquestionform"
+					onsubmit="fileUpload(this,'../AddMultipleQuestion')">
+					<div class="box-body">
+						<div class="form-group">
+							<label for="subject">Subject </label> <select id="subject"
+								name="subject" class="form-control " required="required">
+								<option disabled selected style="display: none;" value="">Select
+									Subject</option>
+								<option ng-repeat="x in options" value="{{x.value}}">{{x.label}}</option>
+							</select> 
+						</div>
+						<div class="form-group">
+							<label for="files">Question data</label> <input type="file"
+							accept=".xlsx,.xls"	name="file" id="files" /><br /> <span class="help-block">
+										Note:- Only  xlsx or xls format is allowed.<br><a href="../samples/question.xlsx">download</a> </span>
+						</div>
+					</div>
+
+					<div class="box-footer">
+						<button id="Add" name="add" class="btn btn-primary" type="submit">
+							<b>ADD</b> <i class="glyphicon glyphicon-plus"></i>
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="col-md-12">
+			
+			<!-- general form elements -->
+			<div class="box box-danger" id="box1">
+				<div class="box-header">
+					<h3 class="box-title">Add Question one by one</h3>
+					
+				</div>
+				<form id="addsinglequestion">
+					<div class="box-body">
+						
+							<div class="form-group">
+								<label for="subject">Subject </label> <select id="subject"
+									name="subject" class="form-control " required="required">
+									<option disabled selected style="display: none;" value="">Select
+										Subject</option>
+									<option ng-repeat="x in options" value="{{x.value}}">{{x.label}}</option>
+								</select> 
+							</div>
+							<div class="form-group">
+								<label for="topic">Topic</label> <input id="topic" name="topic"
+									type="text" placeholder="Topic" class="form-control input-md"
+									required="required">
+							</div>
+						 <label>Question</label>
+						<textarea required id="question" name="question"
+							placeholder="Place some text here"
+							style="width: 100%; height: 100px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+						<label>Option1</label>
+
+
+						<textarea id="option1" name="option1"
+							placeholder="Place some text here"
+							style="width: 100%; height: 50px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+						<label>Option2</label>
+
+						<textarea id="option2" name="option2"
+							placeholder="Place some text here"
+							style="width: 100%; height: 50px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+						<label>Option3</label>
+
+						<textarea id="option3" name="option3"
+							placeholder="Place some text here"
+							style="width: 100%; height: 50px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+						<label>Option4</label>
+
+						<textarea id="option4" name="option4"
+							placeholder="Place some text here"
+							style="width: 100%; height: 50px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+						<label>Option5</label>
+
+						<textarea id="option5" name="option5"
+							placeholder="Place some text here"
+							style="width: 100%; height: 50px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+						<label>Option6</label>
+
+						<textarea id="option6" name="option6"
+							placeholder="Place some text here"
+							style="width: 100%; height: 50px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+						<label>Correct Answer</label>
+
+						<textarea required id="answer" name="answer"
+							placeholder="Place some text here"
+							style="width: 100%; height: 40px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+
+					</div>
+
+					<div class="box-footer">
+						<button id="Add" name="add" class="btn btn-primary" type="submit">
+							<b>ADD</b> <i class="glyphicon glyphicon-plus"></i>
+						</button>
+					</div>
+
+				</form>
+			</div>
+
+		</div>
+
+
+	</div>
+
+</section>

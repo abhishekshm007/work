@@ -1,0 +1,31 @@
+    <!--Profile container-->
+    <div class="container profile">
+      <div class="span3"> <img src="img/mini.png"> </div>
+      <div class="span5">
+        <h1>Abhishek Sharma</h1>
+        <h3>Java &amp; Web Developer</h3>
+        <p> Want to be an asset for an organization by constantly striving towards betterment in my field through complete dedication, smart
+work and honesty. </p>
+        <a href="#myModal" role="button" data-toggle="modal" class="hire-me"><i class="icon-paper-plane"></i> Hire Me </a> </div>
+    </div>
+    <!--END: Profile container-->
+    <!-- Modal -->
+    <div id="hireMeModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="hireMeModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="hireMeModalLabel"><i class="icon-mail"></i> Contact Me</h3>
+      </div>
+      <div class="modal-body">
+        <form action="#" method="post">
+          <input type="text" name="name" placeholder="Your Name">
+          <input type="text" name="email" placeholder="Your Email">
+          <textarea rows="3" name="comment" style="width:80%"></textarea>
+          <br/>
+          <button type="submit" class="btn btn-large"><i class="icon-paper-plane"></i> SUBMIT</button>
+        </form>
+      </div>
+    </div>
+     <script>
+                $('#hireMeModal').modal('hidden')
+        </script>
+        

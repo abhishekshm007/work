@@ -1,0 +1,63 @@
+<meta charset="utf-8">
+
+	<div class="row">
+		<div class="col-md-12">
+		<div class="box box-primary" >
+				<div class="box-body">
+					<div class="row">
+						<div class="col-md-5">
+							<div class="form-group">
+								<label for="batchname">Batch </label> <select required 
+								 id="batch" name="batch" class="form-control ">
+								
+								<option ng-repeat="x in options" value="{{x.value}}">{{x.label}}</option>
+							</select>
+
+							</div>
+						</div>
+						<div class="col-md-5">
+							<div class="form-group">
+								<label for="testname">Test </label> <select required 
+								 id="test" name="test" class="form-control ">
+								
+								<option ng-repeat="x in options1" value="{{x.value}}">{{x.label}}</option>
+							</select>
+
+							</div>
+						</div>
+						<div class="col-md-2"><label for="show">&nbsp; </label>
+							<div class="form-group">
+<button id="show" name="show" class="btn btn-primary" type="submit">
+								Show  <i class="glyphicon glyphicon-search"></i>
+							</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-12">
+							
+									<table id="resultTable"
+										class="table table-responsive table-bordered table-striped dataTable">
+										<thead>
+											<tr>
+												<td>Batch</td>
+												<td>Student</td>
+												<td>Test</td>
+												<td>Score</td>
+												<td>Attempt </td>
+												<td>Attempt Date</td>
+											</tr>
+										</thead>
+									</table>
+								</div>
+							</div>
+						</div> 
+						
+
+					</div>
+					
+				</div>
+
+			</div>
+<!-- modal -->

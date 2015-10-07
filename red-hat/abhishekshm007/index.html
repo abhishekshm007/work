@@ -1,0 +1,85 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <title>Abhishek Sharma</title>
+    <meta name="description" content="Flat Design Mini Portfolio">
+    <meta name="keywords" content="responsive, bootstrap, flat design, flat ui, portfolio">
+    <meta name="author" content="Dzyngiri">
+    <meta name="description" content="This is a responsive flat design mini portfolio for creative folks who want to showcase their work online.">
+    <!-- styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="font/css/fontello.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+    </head>
+    <body data-ng-app="homeAngular" data-ng-controller="mainController">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container"> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="index.html"><img src="img/user.jpg"/></a>
+          <ul class="nav nav-collapse pull-right">
+            <li><a data-ui-sref="profile" data-ng-class="menuActive('profile')"><i class="icon-user"></i> Profile</a></li>
+            <li><a data-ui-sref="skills" data-ng-class="menuActive('skills')"><i class="icon-trophy"></i> Skills</a></li>
+            <li><a data-ui-sref="work" data-ng-class="menuActive('work')"><i class="icon-picture"></i> Work</a></li>
+            <li><a data-ui-sref="resume" data-ng-class="menuActive('resume')"><i class="icon-doc-text"></i> Resume</a></li>
+          </ul>
+          <!-- Everything you want hidden at 940px or less, place within here -->
+          <div class="nav-collapse collapse">
+            <!-- .nav, .navbar-search, .navbar-form, etc -->
+          </div>
+        </div>
+      </div>
+    </div>
+	<!-- Angular view start -->
+	<div data-ui-view></div>
+	<!-- Angular view start -->
+    <!-- Social Icons -->
+    <div class="row social">
+      <ul class="social-icons">
+        <li><a href="#" target="_blank"><img src="img/fb.png" alt="facebook"></a></li>
+        <li><a href="#" target="_blank"><img src="img/tw.png" alt="twitter"></a></li>
+        <li><a href="#" target="_blank"><img src="img/go.png" alt="google plus"></a></li>
+        <li><a href="#" target="_blank"><img src="img/pin.png" alt="pinterest"></a></li>
+        <li><a href="#" target="_blank"><img src="img/st.png" alt="stumbleupon"></a></li>
+        <li><a href="#" target="_blank"><img src="img/dr.png" alt="dribbble"></a></li>
+      </ul>
+    </div>
+    <!-- END: Social Icons -->
+    <!-- Footer -->
+    <div class="footer">
+      <div class="container">
+        <p class="pull-left"><a href="http://abhishekshm007-ainaa.rhcloud.com/">Abhishek Sharma</a></p>
+        <p class="pull-right"><a href="#myModal" role="button" data-toggle="modal"> <i class="icon-mail"></i> CONTACT</a></p>
+      </div>
+    </div>
+    <!-- Contact form in Modal -->
+    <!-- Modal -->
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel"><i class="icon-mail"></i> Contact Me</h3>
+      </div>
+      <div class="modal-body">
+        <form action="#" method="post">
+          <input type="text" name="name" placeholder="Your Name">
+          <input type="text" name="email" placeholder="Your Email">
+          <textarea rows="3" name="comment" style="width:80%"></textarea>
+          <br/>
+          <button type="submit" class="btn btn-large"><i class="icon-paper-plane"></i> SUBMIT</button>
+        </form>
+      </div>
+    </div>
+    <!-- Scripts -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+                $('#myModal').modal('hidden')
+        </script>
+        <script src="js/angular/angular.min.js"></script>
+        <script src="js/angular/ui-bootstrap-tpls.js"></script>
+        <script src="js/angular/angular-ui-route.js"></script>
+        <script src="js/angular/angular-touch.min.js"></script>
+        <script src="js/angular/routing.js"></script>
+    </body>
+    </html>

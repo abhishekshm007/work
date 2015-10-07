@@ -1,0 +1,398 @@
+<div class="row" id="content">
+	<div class="col-md-12">
+		<!-- Custom Tabs -->
+		<div class="nav-tabs-custom" data-ng-controller="questionController">
+
+
+			<div class="modal fade" id="replyModal" tabindex="-1" role="dialog"
+				aria-labelledby="replyModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<h4 class="modal-title" id="replyModalLabel">Reply to
+								question</h4>
+						</div>
+						<div class="modal-body">
+							<form>
+								<div class="form-group">
+									<label for="message-text" class="control-label">Answer
+										:</label>
+									<form>
+										<textarea class="answerTextarea"
+											placeholder="Give your answer here..."
+											style="width: 100%; height: 200px;  line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+									</form>
+								</div>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-sm btn-default"
+								data-dismiss="modal">Close</button>
+							<button type="button" data-ng-click="reply()" class="btn btn-sm btn-primary">Reply</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+
+
+
+
+
+			<div class="modal fade" id="showAnswerModal" tabindex="-1" role="dialog"
+				aria-labelledby="showAnswerModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<h4 class="modal-title" id="showAnswerModalLabel">Answers of this question</h4>
+						</div>
+						<div class="modal-body">
+						<div data-ng-show="noMoreAnswerFound">No one answer this question</div>
+							<div class="callout callout-info" data-ng-repeat="answer in answers">
+                                        <p>{{answer.content}}</p>
+                                        <button type="button" class="btn btn-sm  btn-info" data-ng-click="liked(answer.id, $index, '', 'answer')" data-ng-model="answer.liked" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
+       									<span data-ng-show="!answer.liked"><i class="fa fa-thumbs-up"></i> Like</span>
+       									<span data-ng-show="answer.liked"><i class="fa fa-thumbs-down"></i> Unlike</span>
+   										</button>
+                                        <span class="badge" style="margin: 5px;"> reputation {{answer.reputation}} </span>
+                                        <span class="pull-right">
+											<ul class="list-unstyled">
+                                       			 <li><span class="badge pull-right" style="margin-bottom: 5px;"> by {{answer.user}} </span></li>
+                                        		<li><span class="badge pull-right" style="margin-bottom: 5px;"> at {{answer.date | date:'medium'}} </span></li>
+                                    		</ul>                                        
+                                        </span>
+                             </div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-sm btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#replyModal" data-whatever="">
+   										Reply
+   										</button>
+							<button type="button" class="btn btn-sm btn-default"
+								data-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			
+			
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#mine" class="fakeLink"  data-ng-click='tabChanged("mine")' data-toggle="tab">My Question</a></li>
+				<li class=""><a href="#newest" class="fakeLink" prevent-default data-ng-click="tabChanged('newest')" data-toggle="tab">Newest</a></li>
+				<li class=""><a href="#answered" class="fakeLink" data-ng-click='tabChanged("answered")' data-toggle="tab">Most answered</a></li>
+				<li class=""><a href="#reputed" class="fakeLink" data-ng-click='tabChanged("reputed")' data-toggle="tab">Most reputed</a></li>
+				<li class=""><a href="#unanswered" class="fakeLink" data-ng-click='tabChanged("unanswered")' data-toggle="tab">Unanswered</a></li>
+				<li class=""><a class="btn" data-ng-click="refreshPage()" style="border-radius: 4px;text-align: center;color: #666;background-color: #fafafa;font-size: 12px;">
+                                        <i class="fa fa-refresh"></i> Refresh
+                                    </a></li>
+				<!-- <li class=" col-sm-4">
+						<div class="input-group">
+							<div class="input-group-btn">
+								<button type="button" class="btn  btn-flat dropdown-toggle"
+									data-toggle="dropdown" aria-expanded="false">
+									{{searchType}} <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu">
+									<li><a class="fakeLink" data-ng-click="changeSearchType('title')">Title</a></li>
+									<li><a class="fakeLink" data-ng-click="changeSearchType('tags')">Tags</a></li>
+								</ul>
+							</div>
+							/btn-group
+							<input type="text" class="form-control" data-ng-model="search" aria-label="..." data-ng-keyup="searchQuestion()" data-ng-cut="searchQuestion()" data-ng-paste="searchQuestion()">
+							<span class="input-group-btn">
+                                            <button class="btn btn-default" data-ng-click="searchQuestion()" type="button">Search</button>
+                                        </span>
+				</li> -->
+				 <li class="pull-right dropdown"><a
+					class="fakeLink dropdown-toggle" data-toggle="dropdown"><i
+						class="fa fa-gear"></i></a>
+					<ul class="dropdown-menu">
+						<li role="presentation"><input type="checkbox"
+							ng-model="oneAtATime" style="margin: 10px 3px -15px 8px;"> One at a time</li>
+						
+					</ul></li> 
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane active" id="mine" >
+					<div >
+						<accordion close-others="oneAtATime" > 
+						<accordion-group data-ng-repeat="mineQuestion in mineQuestions" data-ng-show="!$first"
+							heading=" {{mineQuestion.title}} ">
+						<div class="callout callout-info ">
+                                        <span>
+                                        {{mineQuestion.content}}
+                                        </span>
+                                        
+                                        <br>
+                                        <br>
+                                        <span data-ng-repeat="tag in mineQuestion.tags" >
+                                        <span data-ng-show="tag.tagName">
+                                        <span class="label label-default"   data-toggle="tooltip" title="{{tag.tagDesc + ' {' + tag.tagReputation +'}'}}"><i class="fa fa-tags"></i> {{tag.tagName}} </span>
+                                        </span>
+										</span>
+                                    </div>
+                                    <div class="callout callout-warning" style="margin:0px; important!">
+                                        <button type="button" class="btn btn-sm  btn-info" data-ng-click="liked(mineQuestion.id, mineQuestion.index, 'mine', 'question')" data-ng-model="mineQuestion.liked" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
+       									<span data-ng-show="!mineQuestion.liked"><i class="fa fa-thumbs-up"></i> Like</span>
+       									<span data-ng-show="mineQuestion.liked"><i class="fa fa-thumbs-down"></i> Unlike</span>
+   										</button>
+   										<button type="button" class="btn btn-sm btn-success" data-ng-click="forAnswerModal(mineQuestion.id)">
+   										{{mineQuestion.answers}} answers
+   										</button>
+   										<button type="button" class="btn btn-sm btn-primary" data-ng-click="setQuestionForModal(mineQuestion.id)" 
+   										data-toggle="modal" data-target="#replyModal" data-whatever="">
+   										Reply
+   										</button>
+   										<a class="fakeLink" ui-sref="forum/questions/explored({id:mineQuestion.id})">
+   										<button type="button"  class="btn btn-sm btn-warning" >
+   										Explore
+   										</button></a>
+   										<span class="badge" style="margin: 5px;"> reputation {{mineQuestion.reputation}} </span>
+                                        <span class="pull-right">
+											<ul class="list-unstyled">
+                                       			 <li><span class="badge pull-right" style="margin-bottom: 5px;"> by {{mineQuestion.user}} </span></li>
+                                        		<li><span class="badge pull-right" style="margin-bottom: 5px;"> at {{mineQuestion.date | date:'medium'}} </span></li>
+                                    		</ul>                                        
+                                        </span>
+							</div>
+						</accordion-group>
+						</accordion>
+					</div>
+					<br>
+					<div data-ng-show="!mineQuestions[0].noMoreQuestion">
+					<button id="loadMoreQuestions" data-ng-click="loadMoreQuestions('mine')"   class="btn  btn-block btn-default  "> <dt>{{mineQuestions[0].loadQuestionText}}</dt> </button>
+					</div>
+					<div  data-ng-show="mineQuestions[0].noMoreQuestion" class="well" style="text-align:center;">
+					NO MORE QUESTION FOUND
+					</div>
+					
+				</div>
+				<!-- /.tab-pane -->
+				<div class="tab-pane" id="newest">
+					<div >
+						<accordion close-others="oneAtATime" > 
+						<accordion-group data-ng-repeat="newestQuestion in newestQuestions" data-ng-show="!$first"
+							heading=" {{newestQuestion.title}} ">
+						<div class="callout callout-info ">
+                                        <span>
+                                        {{newestQuestion.content}}
+                                        </span>
+                                        
+                                        <br>
+                                        <br>
+                                        <span data-ng-repeat="tag in newestQuestion.tags" data-ng-show="tag.tagName">
+												<span class="label label-default"  data-toggle="tooltip" title="{{tag.tagDesc + ' {' + tag.tagReputation +'}'}}"><i class="fa fa-tags"></i> {{tag.tagName}} </span>
+										</span>
+                                    </div>
+                                    <div class="callout callout-warning" style="margin:0px; important!">
+                                        <button type="button" class="btn btn-sm  btn-info" data-ng-click="liked(newestQuestion.id, newestQuestion.index, 'newest', 'question')" data-ng-model="newestQuestion.liked" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
+       									<span data-ng-show="!newestQuestion.liked"><i class="fa fa-thumbs-up"></i> Like</span>
+       									<span data-ng-show="newestQuestion.liked"><i class="fa fa-thumbs-down"></i> Unlike</span>
+   										</button>
+   										<button type="button" class="btn btn-sm btn-success" data-ng-click="forAnswerModal(newestQuestion.id)">
+   										{{newestQuestion.answers}} answers
+   										</button>
+   										<button type="button" class="btn btn-sm btn-primary" data-ng-click="setQuestionForModal(newestQuestion.id)" data-toggle="modal" data-target="#replyModal" data-whatever="">
+   										Reply
+   										</button>
+   										<a class="fakeLink" ui-sref="forum/questions/explored({id:newestQuestion.id})">
+   										<button type="button"  class="btn btn-sm btn-warning" >
+   										Explore
+   										</button></a>
+   										<span class="badge" style="margin: 5px;"> reputation {{newestQuestion.reputation}} </span>
+                                        <span class="pull-right">
+											<ul class="list-unstyled">
+                                       			 <li><span class="badge pull-right" style="margin-bottom: 5px;"> by {{newestQuestion.user}} </span></li>
+                                        		<li><span class="badge pull-right" style="margin-bottom: 5px;"> at {{newestQuestion.date | date:'medium'}} </span></li>
+                                    		</ul>                                        
+                                        </span>
+							</div>
+						</accordion-group>
+						</accordion>
+					</div>
+					<br>
+					<div data-ng-show="!newestQuestions[0].noMoreQuestion">
+					<button id="loadMoreQuestions" data-ng-click="loadMoreQuestions('newest')"   class="btn  btn-block btn-default  "> <dt>{{newestQuestions[0].loadQuestionText}}</dt> </button>
+					</div>
+					<div  data-ng-show="newestQuestions[0].noMoreQuestion" class="well" style="text-align:center;">
+					NO MORE QUESTION FOUND
+					</div>
+				</div>
+				<!-- /.tab-pane -->
+				<div class="tab-pane" id="answered">
+					<div >
+						<accordion close-others="oneAtATime" > 
+						<accordion-group data-ng-repeat="answeredQuestion in answeredQuestions" data-ng-show="!$first"
+							heading=" {{answeredQuestion.title}} ">
+						<div class="callout callout-info ">
+                                        <span>
+                                        {{answeredQuestion.content}}
+                                        </span>
+                                        
+                                        <br>
+                                        <br>
+                                        <span data-ng-repeat="tag in answeredQuestion.tags" data-ng-show="tag.tagName">
+												<span class="label label-default"  data-toggle="tooltip" title="{{tag.tagDesc + ' {' + tag.tagReputation +'}'}}"><i class="fa fa-tags"></i> {{tag.tagName}} </span>
+										</span>
+                                    </div>
+                                    <div class="callout callout-warning" style="margin:0px; important!">
+                                        <button type="button" class="btn btn-sm  btn-info" data-ng-click="liked(answeredQuestion.id, answeredQuestion.index, 'answered', 'question')" data-ng-model="answeredQuestion.liked" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
+       									<span data-ng-show="!answeredQuestion.liked"><i class="fa fa-thumbs-up"></i> Like</span>
+       									<span data-ng-show="answeredQuestion.liked"><i class="fa fa-thumbs-down"></i> Unlike</span>
+   										</button>
+   										<button type="button" class="btn btn-sm btn-success" data-ng-click="forAnswerModal(answeredQuestion.id)">
+   										{{answeredQuestion.answers}} answers
+   										</button>
+   										<button type="button" class="btn btn-sm btn-primary" data-ng-click="setQuestionForModal(answeredQuestion.id)" data-toggle="modal" data-target="#replyModal" data-whatever="">
+   										Reply
+   										</button>
+   										<a class="fakeLink" ui-sref="forum/questions/explored({id:answeredQuestion.id})">
+   										<button type="button"  class="btn btn-sm btn-warning" >
+   										Explore
+   										</button></a>
+   										<span class="badge" style="margin: 5px;"> reputation {{answeredQuestion.reputation}} </span>
+                                        <span class="pull-right">
+											<ul class="list-unstyled">
+                                       			 <li><span class="badge pull-right" style="margin-bottom: 5px;"> by {{answeredQuestion.user}} </span></li>
+                                        		<li><span class="badge pull-right" style="margin-bottom: 5px;"> at {{answeredQuestion.date | date:'medium'}} </span></li>
+                                    		</ul>                                        
+                                        </span>
+							</div>
+						</accordion-group>
+						</accordion>
+					</div>
+					<br>
+					<div data-ng-show="!answeredQuestions[0].noMoreQuestion">
+					<button id="loadMoreQuestions" data-ng-click="loadMoreQuestions('answered')"   class="btn  btn-block btn-default  "> <dt>{{answeredQuestions[0].loadQuestionText}}</dt> </button>
+					</div>
+					<div  data-ng-show="answeredQuestions[0].noMoreQuestion" class="well" style="text-align:center;">
+					NO MORE QUESTION FOUND
+					</div>
+					
+				</div>
+				<!-- /.tab-pane -->
+				<div class="tab-pane" id="reputed">
+					<div >
+						<accordion close-others="oneAtATime" > 
+						<accordion-group data-ng-repeat="reputedQuestion in reputedQuestions" data-ng-show="!$first"
+							heading=" {{reputedQuestion.title}} ">
+						<div class="callout callout-info ">
+                                        <span>
+                                        {{reputedQuestion.content}}
+                                        </span>
+                                        
+                                        <br>
+                                        <br>
+                                        <span data-ng-repeat="tag in reputedQuestion.tags" data-ng-show="tag.tagName">
+												<span class="label label-default"  data-toggle="tooltip" title="{{tag.tagDesc + ' {' + tag.tagReputation +'}'}}"><i class="fa fa-tags"></i> {{tag.tagName}} </span>
+										</span>
+                                    </div>
+                                    <div class="callout callout-warning" style="margin:0px; important!">
+                                        <button type="button" class="btn btn-sm  btn-info" data-ng-click="liked(reputedQuestion.id, reputedQuestion.index, 'reputed', 'question')" data-ng-model="reputedQuestion.liked" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
+       									<span data-ng-show="!reputedQuestion.liked"><i class="fa fa-thumbs-up"></i> Like</span>
+       									<span data-ng-show="reputedQuestion.liked"><i class="fa fa-thumbs-down"></i> Unlike</span>
+   										</button>
+   										<button type="button" class="btn btn-sm btn-success" data-ng-click="forAnswerModal(reputedQuestion.id)">
+   										{{reputedQuestion.answers}} answers
+   										</button>
+   										<button type="button" class="btn btn-sm btn-primary" data-ng-click="setQuestionForModal(reputedQuestion.id)" data-toggle="modal" data-target="#replyModal" data-whatever="">
+   										Reply
+   										</button>
+   										<a class="fakeLink" ui-sref="forum/questions/explored({id:reputedQuestion.id})">
+   										<button type="button"  class="btn btn-sm btn-warning" >
+   										Explore
+   										</button></a>
+   										<span class="badge" style="margin: 5px;"> reputation {{reputedQuestion.reputation}} </span>
+                                        <span class="pull-right">
+											<ul class="list-unstyled">
+                                       			 <li><span class="badge pull-right" style="margin-bottom: 5px;"> by {{reputedQuestion.user}} </span></li>
+                                        		<li><span class="badge pull-right" style="margin-bottom: 5px;"> at {{reputedQuestion.date | date:'medium'}} </span></li>
+                                    		</ul>                                        
+                                        </span>
+							</div>
+						</accordion-group>
+						</accordion>
+					</div>
+					<br>
+					<div data-ng-show="!reputedQuestions[0].noMoreQuestion">
+					<button id="loadMoreQuestions" data-ng-click="loadMoreQuestions('reputed')"   class="btn  btn-block btn-default  "> <dt>{{reputedQuestions[0].loadQuestionText}}</dt> </button>
+					</div>
+					<div  data-ng-show="reputedQuestions[0].noMoreQuestion" class="well" style="text-align:center;">
+					NO MORE QUESTION FOUND
+					</div>
+					
+				</div>
+				<!-- /.tab-pane -->
+				<div class="tab-pane" id="unanswered">
+					<div >
+						<accordion close-others="oneAtATime" > 
+						<accordion-group data-ng-repeat="unansweredQuestion in unansweredQuestions" data-ng-show="!$first"
+							heading=" {{unansweredQuestion.title}} ">
+						<div class="callout callout-info ">
+                                        <span>
+                                        {{unansweredQuestion.content}}
+                                        </span>
+                                        
+                                        <br>
+                                        <br>
+                                         <span data-ng-repeat="tag in unansweredQuestion.tags" data-ng-show="tag.tagName">
+												<span class="label label-default"  data-toggle="tooltip" title="{{tag.tagDesc + ' {' + tag.tagReputation +'}'}}"><i class="fa fa-tags"></i> {{tag.tagName}} </span>
+										</span>
+                                    </div>
+                                    <div class="callout callout-warning" style="margin:0px; important!">
+                                        <button type="button" class="btn btn-sm  btn-info" data-ng-click="liked(unansweredQuestion.id, unansweredQuestion.index, 'unanswered', 'question')" data-ng-model="unansweredQuestion.liked" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
+       									<span data-ng-show="!unansweredQuestion.liked"><i class="fa fa-thumbs-up"></i> Like</span>
+       									<span data-ng-show="unansweredQuestion.liked"><i class="fa fa-thumbs-down"></i> Unlike</span>
+   										</button>
+   										<button type="button" class="btn btn-sm btn-success" data-ng-click="forAnswerModal(unansweredQuestion.id)">
+   										{{unansweredQuestion.answers}} answers
+   										</button>
+   										<button type="button" class="btn btn-sm btn-primary" data-ng-click="setQuestionForModal(unansweredQuestion.id)" data-toggle="modal" data-target="#replyModal" data-whatever="">
+   										Reply
+   										</button>
+   										<a class="fakeLink" data-ui-sref="forum/questions/explored({id:unansweredQuestion.id})">
+   										<button type="button"  class="btn btn-sm btn-warning" >
+   										Explore
+   										</button></a>
+   										<span class="badge" style="margin: 5px;"> reputation {{unansweredQuestion.reputation}} </span>
+                                        <span class="pull-right">
+											<ul class="list-unstyled">
+                                       			 <li><span class="badge pull-right" style="margin-bottom: 5px;"> by {{unansweredQuestion.user}} </span></li>
+                                        		<li><span class="badge pull-right" style="margin-bottom: 5px;"> at {{unansweredQuestion.date | date:'medium'}} </span></li>
+                                    		</ul>                                        
+                                        </span>
+							</div>
+						</accordion-group>
+						</accordion>
+					</div>
+					<br>
+					<div data-ng-show="!unansweredQuestions[0].noMoreQuestion">
+					<button id="loadMoreQuestions" data-ng-click="loadMoreQuestions('unanswered')"   class="btn  btn-block btn-default  "> <dt>{{unansweredQuestions[0].loadQuestionText}}</dt> </button>
+					</div>
+					<div  data-ng-show="unansweredQuestions[0].noMoreQuestion" class="well" style="text-align:center;">
+					NO MORE QUESTION FOUND
+					</div>
+					
+					
+					
+				</div>
+				<!-- /.tab-pane -->
+			</div>
+			<!-- /.tab-content -->
+		</div>
+		<!-- nav-tabs-custom -->
+	</div>
+	<!-- /.col -->
+
+
+
+</div>

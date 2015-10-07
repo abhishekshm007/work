@@ -1,0 +1,110 @@
+<div class="row" id="content" ng-controller="exploredQuestion" >
+	<div class="col-md-12" >
+	
+	<div class="modal fade" id="replyModal" tabindex="-1" role="dialog"
+				aria-labelledby="replyModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<h4 class="modal-title" id="replyModalLabel">Reply to
+								question</h4>
+						</div>
+						<div class="modal-body">
+							<form>
+								<div class="form-group">
+									<label for="message-text" class="control-label">Answer
+										:</label>
+									<form>
+										<textarea class="answerTextarea"
+											placeholder="Give your answer here..."
+											style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+									</form>
+								</div>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-sm btn-default"
+								data-dismiss="modal">Close</button>
+							<button type="button" ng-click="reply()" class="btn btn-sm btn-primary">Reply</button>
+						</div>
+					</div>
+				</div>
+			</div>
+	
+	
+	
+	
+                            <div class="box box-info">
+                                <div class="box-header">
+                                    <i class="fa fa-question"></i>
+                                    <h3 class="box-title">{{exploredQuestion.title}}</h3>
+                                </div><!-- /.box-header -->
+                                <div class="box-body">
+                                    <div class="callout callout-info">
+                                        <p>{{exploredQuestion.content}}</p>
+                                    </div>
+                                    
+                                    
+                                </div><!-- /.box-body -->
+                                <div class="box-footer">
+                                <div class="callout callout-warning style="margin:0px; important!">
+                                        <button type="button" class="btn btn-sm btn-info" ng-click="liked(exploredQuestion.id, 0, 'question')" ng-model="exploredQuestion.liked" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
+       									<span ng-show="!exploredQuestion.liked"><i class="fa fa-thumbs-up"></i> Like</span>
+       									<span ng-show="exploredQuestion.liked"><i class="fa fa-thumbs-down"></i> Unlike</span>
+   										</button>
+   										<button type="button" class="btn btn-sm btn-primary"  data-toggle="modal" data-target="#replyModal" data-whatever="">
+   										Reply
+   										</button>
+   										</button>
+   										<span class="badge" style="margin: 5px;font-size: 14px;"> reputation {{exploredQuestion.reputation}} </span>
+                                        <span class="pull-right">
+											<ul class="list-unstyled">
+                                       			 <li><span class="badge pull-right" style="margin-bottom: 5px;font-size: 14px;"> by {{exploredQuestion.user}} </span></li>
+                                        		<li><span class="badge pull-right" style="margin-bottom: 5px;font-size: 14px;"> at {{exploredQuestion.date | date:'medium'}} </span></li>
+                                    		</ul>                                        
+                                        </span>
+							</div>
+							</div>
+                            </div><!-- /.box -->
+                            
+                            <div class="box ">
+                                <div class="box-header">
+                                    <i class="fa fa-font"></i>
+                                    <h3 class="box-title">Answers</h3>
+                                </div><!-- /.box-header -->
+                                <div class="box-body">
+                                <div ng-show="noAnyAnswerFound">No one answered this question!!!</div>
+                              <div ng-repeat="answer in answersForExplored">
+                                    <div class="callout callout-info" style="margin:0px; important!">
+                                        <p>{{answer.content}}</p>
+                                         
+                                    </div>
+                                   
+                                    <div class="callout callout-warning ">
+                                        <button type="button" class="btn btn-sm btn-info" ng-click="liked(answer.id, $index, 'answer')" ng-model="answer.liked" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
+       									<span ng-show="!answer.liked"><i class="fa fa-thumbs-up"></i> Like</span>
+       									<span ng-show="answer.liked"><i class="fa fa-thumbs-down"></i> Unlike</span>
+   										</button>
+   										<span class="badge" style="margin: 5px;font-size: 14px;"> reputation {{answer.reputation}} </span>
+                                        <span class="pull-right">
+											<ul class="list-unstyled">
+                                       			 <li><span class="badge pull-right" style="margin-bottom: 5px;font-size: 14px;"> by {{answer.user}} </span></li>
+                                        		<li><span class="badge pull-right" style="margin-bottom: 5px;font-size: 14px;"> at {{answer.date | date:'medium'}} </span></li>
+                                    		</ul>                                        
+                                        </span>
+									</div>
+                                 </div>
+                                </div><!-- /.box-body -->
+                               
+                            </div><!-- /.box -->
+		
+	</div>
+	<!-- /.col -->
+</div>
+<script type="text/javascript">
+
+</script>

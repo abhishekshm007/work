@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+org.jboss.tools.openshift.ApplicationId=550ab6f8e0b8cd067b0000a7
+org.jboss.tools.openshift.ApplicationName=o9paathshala
+org.jboss.tools.openshift.Connection=https\://abhishekshm007@
+org.jboss.tools.openshift.DeployFolder=webapps
+org.jboss.tools.openshift.Domain=o9
+org.jboss.tools.openshift.RemoteName=origin

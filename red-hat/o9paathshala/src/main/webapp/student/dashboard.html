@@ -1,0 +1,132 @@
+<meta charset="utf-8">
+<div class="row">
+	<div class="col-lg-3 col-xs-6">
+		<!-- small box -->
+		<div class="small-box bg-green">
+			<div class="inner">
+				<h3>{{test}}</h3>
+				<p>Not attempted Tests</p>
+			</div>
+			<div class="icon">
+				<i class="ion-document-text"></i>
+			</div>
+			<a data-ui-sref="tests" class="small-box-footer fakeLink"> More
+				info <i class="fa fa-arrow-circle-right"></i>
+			</a>
+		</div>
+	</div>
+	<!-- ./col -->
+	<div class="col-lg-3 col-xs-6">
+		<!-- small box -->
+		<div class="small-box bg-red">
+			<div class="inner">
+				<h3>Results</h3>
+				<p>See yours results here</p>
+			</div>
+			<div class="icon">
+				<i class="ion-arrow-graph-up-left"></i>
+			</div>
+			<a data-ui-sref="gresults" class="small-box-footer fakeLink"> More
+				info <i class="fa fa-arrow-circle-right"></i>
+			</a>
+		</div>
+	</div>
+	<!-- ./col -->
+	<div class="col-lg-3 col-xs-6">
+		<!-- small box -->
+		<div class="small-box" style="background-color: #CF6868;">
+			<div class="inner" style="color: white;">
+				<h3>Forum</h3>
+				<p>Discuss your queries here</p>
+			</div>
+			<div class="icon">
+				<i class="ion-android-forums"></i>
+			</div>
+			<a data-ui-sref="forum/questions" class="small-box-footer fakeLink">
+				More info <i class="fa fa-arrow-circle-right"></i>
+			</a>
+		</div>
+	</div>
+	<!-- ./col -->
+	<!-- ./col -->
+	<div class="col-lg-3 col-xs-6">
+		<!-- small box -->
+		<div class="small-box bg-aqua">
+			<div class="inner">
+				<h3>Queries</h3>
+				<p>May I help you?</p>
+			</div>
+			<div class="icon">
+				<i class="ion ion-help"></i>
+			</div>
+			<a data-ui-sref="help" class="small-box-footer"> More info <i
+				class="fa fa-arrow-circle-right"></i>
+			</a>
+		</div>
+	</div>
+</div>
+<!-- /.row -->
+<div class="row">
+	<div class="col-md-6">
+					<div class="box box-primary">
+			<div class="box-header">
+				<h4 class="box-title">Select test and view rankings</h4>
+				<div data-ng-show="!dashboardTestList">
+					<select  name="test"  class="form-control ">
+							<option disabled selected style="display: none;" value="">
+							No test found
+							</option>
+						</select>
+				</div>
+				<div data-ng-show="dashboardTestList">
+						<select  name="test" id="dtest" class="form-control ">
+							<option disabled selected style="display: none;" value="">
+							Select Test
+							</option>
+							<option data-ng-repeat="x in options" value="{{x.value}}">{{x.label}}</option>
+						</select>
+						</div>
+</div>
+			
+			<div class="box-body table-responsive" id="v" style="display: none;">
+				<table id="leaderBoardTable"
+					class="table table-bordered table-striped dataTable">
+					<thead>
+						<tr>
+							<td>Student</td>
+							<td>Score(%)</td>
+							<td>Rank</td>
+							<td>Attempt</td>
+						</tr>
+					</thead>
+				</table>
+			</div>
+		</div>
+	</div>
+
+					
+					
+					<div class="col-md-6">
+						<div class="box box-danger">
+							<div class="box-header">
+								<h3 class="box-title">Not attempted tests</h3>
+							</div>
+							<!-- /.box-header -->
+							<div class="box-body table-responsive">
+								<table id="testtable"
+									class="table table-bordered table-striped dataTable">
+									<thead>
+										<tr>
+											<td>Test Name</td>
+											<td>Start date</td>
+											<td>End date</td>
+										</tr>
+									</thead>
+
+								</table>
+
+								<!-- /.box-body -->
+							</div>
+						</div>
+					</div>
+</div>

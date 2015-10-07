@@ -1,0 +1,40 @@
+.dark-red{
+	background-color: #f56954;
+	font-weight: bold;
+	font-size: 20px;
+	text-align:center;
+	color:white;
+	-webkit-border-radius: 130px;
+   -moz-border-radius: 130px;
+	border-radius: 130px;
+	border:1px solid #0F0F00;
+}
+.dark-green{
+	background-color: #1abc9c;
+	font-weight: bold;
+	font-size: 20px;
+	
+	color:white;
+	-webkit-border-radius: 130px;
+   -moz-border-radius: 130px;
+	border-radius: 130px;
+	border:1px solid #0F0F00;
+}
+.dark-blue{
+	background-color: #4893BE;
+	font-weight: bold;
+	font-size: 20px;
+	color:white;
+	text-align:center;
+	-webkit-border-radius: 130px;
+   -moz-border-radius: 130px;
+	border-radius: 130px;
+	border:1px solid #0F0F00;
+}
+.round-corner{
+   -webkit-border-radius: 130px;
+   -moz-border-radius: 130px;
+	border-radius: 130px;
+	border:1px solid #0F0F00;
+	
+}

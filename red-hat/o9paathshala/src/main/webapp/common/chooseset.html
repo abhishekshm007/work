@@ -1,0 +1,66 @@
+<meta charset="utf-8">
+	<div class="row">
+		<section class="col-lg-12 ">
+
+			<div class="box box-primary" id="box">
+				<div class="box-header">
+				<h3 class="box-title" >Total Amount : <b style="color: #CC0000">&#8377;<a style="color: #CC0000" id="amount">0.00</a></b></h3>
+				<button id="buy1"  class=" margin btn  btn-success  "><i class="fa fa-shopping-cart"></i> Buy</button>
+		
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body table-responsive">
+					<table id="settable"
+						class="table table-bordered table-striped dataTable">
+						<thead>
+							<tr>
+								<td>Set Name</td>
+								<td>Questions</td>
+								<td>Subject</td>
+								<td>Details</td>
+								<td>Select</td>
+								
+							</tr>
+						</thead>
+
+					</table>
+	<button id="buy2"  class=" margin btn  btn-success btn-block "><i class="fa fa-shopping-cart"></i> Buy</button>
+					</div>
+			</div>
+		</section>
+	</div>
+
+
+
+<div id="orderdetail" class="modal fade" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+	<div id="myModal1" class="modal-dialog modal-md">
+		<div class="modal-content">
+			<div class="modal-header" id="modalheader">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true" onclick="clear()">×</button>
+				<h3 class="modal-title" class="label label-success">Order Details</h3>
+							</div>
+							<div class="modal-body">
+				<table class="table table-user-information">
+								<tbody>
+									<tr>
+										<td>Amount :</td>
+										<td  style="font-weight: bold;"> <b style="font-weight: bold; font-size: 16px;" id="totalamount"></b></td>
+									</tr>
+									<tr>
+										<td>Sets :</td>
+										<td id="sets"></td>
+									</tr>
+									<tr>
+										<td>Package :</td>
+										<td id="pack"></td>
+									</tr>
+									
+								</tbody>
+							</table>
+							</div>
+		</div>
+	</div>
+</div>
+
